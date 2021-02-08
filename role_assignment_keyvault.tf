@@ -12,5 +12,5 @@ resource "azurerm_role_assignment" "key_vault_spn" {
 resource "azurerm_role_assignment" "key_vault_admin" {
   scope                = azurerm_key_vault.terraform.id
   role_definition_name = "Key Vault Secrets Officer"
-  principal_id         = azuread_service_principal.estf.object_id
+  principal_id         = data.azurerm_client_config.current.object_id
 }
